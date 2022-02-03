@@ -24,6 +24,7 @@ parser.set_defaults(dry_run=False)
 args = parser.parse_args()
 
 class_name = args.class_name
+class_num = class_name.split(' ')[1]
 filename = args.hw_pdf
 
 content = ''
@@ -37,7 +38,7 @@ with open(filename, 'rb') as f:
 content = content.split('\n')
 
 hw_num = [c for c in filename if c.isnumeric()][0]
-output_filename = f'{class_name}_hw{hw_num}.tex'
+output_filename = f'{class_num}_hw{hw_num}.tex'
 output = ''
 
 section_problems = {}
@@ -82,6 +83,8 @@ for sec in section_problems.keys():
     output += f'\problem{{{sec}}}{{{prob}}}\n'
 output += '\n\\end{document}'
 if args.verbose or args.dry_run:
+  print('Filename=', output_filename, '\n')
+  print('TeX:\n')
   print(output)
 if not args.dry_run:
   with open(output_filename, 'w') as f:
