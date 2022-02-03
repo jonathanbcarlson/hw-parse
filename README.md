@@ -9,8 +9,8 @@
 
 ## Usage
 - Assuming `hw-parse` is not in your `$PATH`:
-    - `./hw-parse.py [-h] [--verbose] hw_pdf class_name`
-- You can always run `./hw-parse.py --help` to determine usage.
+    - `./hw-parse [-h] [--verbose] [--dry-run] hw_pdf class_name`
+- You can always run `./hw-parse --help` to determine usage.
 
 ## TODO
 - make preamble.tex an environemnt variable
