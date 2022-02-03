@@ -1,0 +1,17 @@
+# hw-parse
+- `hw-parse` is used to parse hw specs to TeX
+- it's not dynamic and expects a certain format
+
+## Installation
+- Clone the repo
+- run `pip install -r requirements.txt`
+    - we need [PyPDF2](https://pythonhosted.org/PyPDF2/)
+
+## Usage
+- Assuming `hw-parse` is not in your `$PATH`:
+    - `./hw-parse.py [-h] [--verbose] hw_pdf class_name`
+- You can always run `./hw-parse.py --help` to determine usage.
+
+## TODO
+- make preamble.tex an environemnt variable
+- have installation be via `brew tap` instead of clone
