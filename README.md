@@ -11,7 +11,3 @@
 - Assuming `hw-parse` is not in your `$PATH`:
     - `./hw-parse [-h] [--verbose] [--dry-run] hw_pdf class_name`
 - You can always run `./hw-parse --help` to determine usage.
-
-## TODO
-- make preamble.tex an environemnt variable
-- have installation be via `brew tap` instead of clone
