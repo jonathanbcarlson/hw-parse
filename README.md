@@ -1,8 +1,10 @@
 # hw-parse
 - `hw-parse` is used to parse hw specs to TeX
-- it's not dynamic and currently expects [this kind of format](sample_formats/sample_format.pdf)
+- it's **NOT dynamic** and currently expects [this kind of format](sample_formats/sample_format.pdf)
     - given that format it creates [this homework TeX file](sample_formats/101_hw1.tex)
     - the sample format pdf was created using [this sample format TeX file](sample_formats/sample_format.tex)
+    - here's a [sample preamble.tex](sample_formats/sample_preamble.tex)
+- Note that `hw-parse` relies on the `\problem` macro which I define on line 8 in the [sample preamble.tex](sample_preamble.tex)
 
 ## Installation
 - Clone the repo
