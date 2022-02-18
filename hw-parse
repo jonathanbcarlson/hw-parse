@@ -1,21 +1,23 @@
 #!/usr/bin/env python3
 import argparse
 from pdfminer.high_level import extract_text
-from dotenv import dotenv_values
 import datetime as dt
-
-"""config = {
-    **dotenv_values(".env.PREAMBLE_PATH")
-    **dotenv_values(".env.AUTHOR_NAME")
-}
-"""
-config = dotenv_values(".env")
+import configparser
+from setup import default_cfg
 
 def add_preamble(output, class_name, hw_num, date):
-  output += f"\\input{{{config['PREAMBLE_PATH']}}}\n"
+  default_config_file_path = default_cfg['config_file_path']
+  config = configparser.ConfigParser()
+  config.read(default_config_file_path)
+  cfg = config['DEFAULT']
+  for key, item in cfg.items():
+    if item == default_cfg[key]:
+      raise ValueError(f"{key} is not set in {default_config_file_path}")
+
+  output += f"\\input{{{cfg['PreamblePath']}}}\n"
   output += '\\title{' + f'{class_name}'.title() + ' - Homework' + f' {hw_num}' + '}\n'
   output += f'\\date{{{date}}}\n'
-  output += f"\\author{{{config['AUTHOR_NAME']}}}\n"
+  output += f"\\author{{{cfg['AuthorName']}}}\n"
   output += "\n\\begin{document}\n"
   output += "\\maketitle\n\n"
   return output
